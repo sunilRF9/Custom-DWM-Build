@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -81,6 +81,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	//{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_d,      spawn,           SHCMD("/usr/bin/rofi -show run")},
+	{ 0,                       	XK_Print,  spawn,           SHCMD("/usr/bin/scrot $HOME/Scrots/`date +%Y-%m-%d_%H:%M:%S`.png")},
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_t,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
