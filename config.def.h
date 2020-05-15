@@ -20,11 +20,12 @@ static const char col_red2[]        = "#ebdbb2";
 static const char col_red3[]        = "#d08770";
 static const char col_red4[]        = "#928374";
 static const char col_red5[]        = "#eaaaef";
+static const char col_red6[]        = "#b71c1c";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	//[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeSel]  = { col_gray4, col_red,  col_red2 },
+	[SchemeSel]  = { col_gray4, col_red,  col_red6 },
 	[SchemeStatus]  = { col_red2, col_green2,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]  = { col_gray1, col_red2,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
     [SchemeTagsNorm]  = { col_gray4, col_red,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
