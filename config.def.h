@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int gappx     = 8;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -21,16 +21,17 @@ static const char col_red3[]        = "#d08770";
 static const char col_red4[]        = "#928374";
 static const char col_red5[]        = "#eaaaef";
 static const char col_red6[]        = "#b71c1c";
+static const char col_yellow[]      = "#fabd2f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	//[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 	[SchemeSel]  = { col_gray4, col_red,  col_red6 },
-	[SchemeStatus]  = { col_red2, col_green2,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray1, col_red2,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  = { col_gray4, col_red,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_gray3, col_cyan,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeStatus]  = { col_gray4, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_gray1, col_gray4,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  = { col_gray4,col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = { col_gray4,col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { col_gray3,col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
  
 };
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -111,8 +112,8 @@ static Key keys[] = {
 	{ MODKEY, 			XK_n, 	   shiftview, 	   {.i = +1 } },
 	{ MODKEY, 			XK_b, 	   shiftview, 	   {.i = -1 } },
 	{ MODKEY,                       XK_q,       spawn,         SHCMD("alacritty -e ranger") }, // file manager
-	{ 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("/usr/bin/xbacklight -inc 15")},
-	{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("/usr/bin/xbacklight -dec 15")},
+	{ 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("/usr/bin/xbacklight -inc 5")},
+	{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("/usr/bin/xbacklight -dec 5")},
 	{ 0, XF86XK_AudioRaiseVolume,	spawn, 		SHCMD("/usr/bin/pactl set-sink-volume 0 +5%")},
 	{ 0, XF86XK_AudioLowerVolume,	spawn, 		SHCMD("/usr/bin/pactl set-sink-volume 0 -5%")},
 	{ 0, XF86XK_AudioMute,		spawn, 		SHCMD("/usr/bin/pactl set-sink-mute 0 toggle")},
