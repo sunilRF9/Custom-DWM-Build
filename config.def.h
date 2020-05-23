@@ -25,13 +25,13 @@ static const char col_yellow[]      = "#fabd2f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	//[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeSel]  = { col_gray4, col_red,  col_red6 },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_gray4  },
+	//[SchemeSel]  = { col_gray4, col_red,  col_gray4 },
 	[SchemeStatus]  = { col_gray4, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]  = { col_gray1, col_gray4,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
     [SchemeTagsNorm]  = { col_gray4,col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_gray4,col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_gray3,col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = { col_gray4,col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { col_gray3,col_cyan,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
  
 };
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -81,7 +81,9 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	//{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_d,      spawn,           SHCMD("/usr/bin/rofi -show run")},
+	//{ MODKEY,                       XK_d,      spawn,           SHCMD("/usr/bin/rofi -show run")},
+	//{ MODKEY,                       XK_d,      spawn,           SHCMD("/usr/local/bin/dmenu_run")},
+	{ MODKEY,                       XK_d,      spawn,           SHCMD("/usr/local/bin/dmenu_run")},
 	{ 0,                       	XK_Print,  spawn,           SHCMD("/usr/bin/scrot $HOME/Scrots/`date +%Y-%m-%d_%H:%M:%S`.png")},
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_t,      togglebar,      {0} },
@@ -111,13 +113,16 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY, 			XK_n, 	   shiftview, 	   {.i = +1 } },
 	{ MODKEY, 			XK_b, 	   shiftview, 	   {.i = -1 } },
-	{ MODKEY,                       XK_q,       spawn,         SHCMD("alacritty -e ranger") }, // file manager
+	{ MODKEY,                       XK_q,       spawn,         SHCMD("alacritty -e lf") }, // file manager
 	{ 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("/usr/bin/xbacklight -inc 5")},
 	{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("/usr/bin/xbacklight -dec 5")},
 	{ 0, XF86XK_AudioRaiseVolume,	spawn, 		SHCMD("/usr/bin/pactl set-sink-volume 0 +5%")},
 	{ 0, XF86XK_AudioLowerVolume,	spawn, 		SHCMD("/usr/bin/pactl set-sink-volume 0 -5%")},
 	{ 0, XF86XK_AudioMute,		spawn, 		SHCMD("/usr/bin/pactl set-sink-mute 0 toggle")},
 	{ MODKEY|ShiftMask, 		XK_x,      spawn, 		SHCMD("/home/coutinho/configs/i3lock-color/lock.sh")},
+	{ MODKEY|ShiftMask, 		XK_s,      spawn, 		SHCMD("/usr/local/bin/shutdown_script.sh")},
+	{ MODKEY|ShiftMask, 		XK_b,      spawn, 		SHCMD("/usr/local/bin/book.sh")},
+	{ MODKEY|ShiftMask, 		XK_y,      spawn, 		SHCMD("/usr/bin/firefox https://youtube.com")},
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
