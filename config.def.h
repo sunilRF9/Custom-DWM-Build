@@ -44,6 +44,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     iscentered   isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
+	{ NULL, NULL, "hidden", SCRATCHPAD_MASK, 0, -1 },
 };
 
 /* layout(s) */
@@ -123,6 +124,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask, 		XK_s,      spawn, 		SHCMD("/usr/local/bin/shutdown_script.sh")},
 	{ MODKEY|ShiftMask, 		XK_b,      spawn, 		SHCMD("/usr/local/bin/book.sh")},
 	{ MODKEY|ShiftMask, 		XK_y,      spawn, 		SHCMD("/usr/bin/firefox https://youtube.com")},
+	{ MODKEY|ShiftMask, 		XK_h,      spawn, 	       SHCMD("/usr/local/bin/htop_scratch.sh")},
+	{ MODKEY, 		        XK_Up,     scratchpad_show, 	{0}                                          },
+	{ MODKEY, 		        XK_Down,   scratchpad_hide,     {0}                                          },
+	{ MODKEY|ShiftMask, 		XK_Down,   scratchpad_remove,   {0}                               	     },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
