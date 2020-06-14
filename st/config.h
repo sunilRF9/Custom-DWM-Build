@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fira Code:Regular:size=16";
-static char *font2[] = {"monospace:size=16" };
+static char *font = "Fira Code:Regular:size=20";
+static char *font2[] = {"monospace:size=20" };
 static int borderpx = 1;
 
 /*
@@ -108,7 +108,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.99;
+float alpha = 0.98;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
