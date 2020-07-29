@@ -2,18 +2,18 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 0;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int gappx     = 1;        /* gaps between windows */
+static const unsigned int snap      = 64;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = {"Fira Code:size=12"};
-static const char dmenufont[]       = "Fira Code:size=12";
+static const char *fonts[]          = {"xos4 Terminus: Regular:size=14", "pango monospace: size=14"};
+static const char dmenufont[]       = "xos4 Terminus: Regular:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-static const char col_cyan2[]       = "#458588";
+static const char col_cyan2[]       = "#002A35";
 static const char col_green[]       = "#98971a";
 static const char col_green2[]      = "#689d6a";
 static const char col_red[]         = "#458588";
@@ -27,16 +27,21 @@ static const char col_yellow2[]     = "#D79921";
 static const char col_yellow1[]     = "#83a598";
 static const char col_purple[]      = "#76199e";
 static const char col_orange[]      = "#F22200";
-static const char col_fluro[]      =  "#be0";
+static const char col_fluro[]       = "#be0";
+static const char col_fluro2[]      = "#2aa198";
+static const char col_fluro3[]      = "#123943";
+static const char col_grey9[]       = "#2F2F2F";
+static const char col_black[]       = "#000000";
+static const char col_base[]       =  "#d33682";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan2,col_fluro},
-	[SchemeStatus]  = { col_fluro,col_gray1, "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeStatus]  = { col_fluro2,col_cyan2, "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]  = {col_gray1,col_fluro, "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  = {col_gray4,col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_fluro,col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_gray4,col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  = {col_fluro2,col_fluro3,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = { col_fluro2,col_cyan2,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { col_gray4,col_fluro3,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
  
 };
 static const char *tags[] = {"1","2","3","4","5","6","7","8","9"};
@@ -86,8 +91,6 @@ static const char *termcmd[]  = { "st", NULL };
 #include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	//{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	//{ MODKEY,                       XK_d,      spawn,           SHCMD("/usr/bin/rofi -show run")},
 	{ MODKEY,                       XK_d,      spawn,           SHCMD("/usr/local/bin/dmenu_run")},
 	{ 0,                       	XK_Print,  spawn,           SHCMD("/usr/bin/scrot $HOME/scrots/`date +%Y-%m-%d_%H:%M:%S`.png")},
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
@@ -127,6 +130,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask, 		XK_x,      spawn, 		SHCMD("/home/coutinho/configs/i3lock-color/lock.sh")},
 	{ MODKEY|ShiftMask, 		XK_s,      spawn, 		SHCMD("/usr/local/bin/shutdown_script.sh")},
 	{ MODKEY|ShiftMask, 		XK_b,      spawn, 		SHCMD("/usr/local/bin/book.sh")},
+	{ MODKEY|ShiftMask, 		XK_m,      spawn, 		SHCMD("/usr/bin/firefox https://open.spotify.com/collection/tracks")},
 	{ MODKEY|ShiftMask, 		XK_h,      spawn, 	       SHCMD("/usr/local/bin/htop_scratch.sh")},
 	{ MODKEY, 		    XK_grave,      spawn, 	       SHCMD("/usr/local/bin/st_scratch.sh")},
 	{ MODKEY|ControlMask, 	       XK_j,     scratchpad_show, 	{0}                                          },
